@@ -18,7 +18,7 @@ export default class House {
     <div class="card cardFont cards">
         <img class="card-img-top" src="${this.imgUrl}" alt="">
         <div class="card-body">
-            <h4 class="card-title">${this.price}</h4>
+            <h4 class="card-title">$${this.price}</h4>
             <p class="card-text">${this.description} built in <b>${this.year}</b></p>
             <p class="card-text">Bedrooms- ${this.bedrooms}</p>
             <p class="card-text"> Bath- ${this.bathrooms}</p>
