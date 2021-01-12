@@ -1,7 +1,7 @@
 
 export default class Job {
-  constructor({ company, hours, jobTitle, rate, description, id}) {
-    this.id = id
+  constructor({ company, hours, jobTitle, rate, description, _id}) {
+    this.id = _id
     this.company = company
     this.hours = hours
     this.jobTitle = jobTitle

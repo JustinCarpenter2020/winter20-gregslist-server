@@ -1,8 +1,8 @@
 
 export default class House {
-  constructor({ bedrooms, bathrooms, levels, price, description, imgUrl, id, year }) {
+  constructor({ bedrooms, bathrooms, levels, price, description, imgUrl, _id, year }) {
     console.log("MODEL: constructor", 3)
-    this.id = id
+    this.id = _id
     this.bedrooms = bedrooms
     this.bathrooms = bathrooms
     this.levels = levels

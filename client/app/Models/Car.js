@@ -1,8 +1,8 @@
 
 export default class Car {
-  constructor({ make, model, year, price, description, imgUrl, id }) {
+  constructor({ make, model, year, price, description, imgUrl, _id }) {
     console.log("MODEL: constructor", 3)
-    this.id = id
+    this.id = _id
     this.make = make
     this.model = model
     this.year = year
