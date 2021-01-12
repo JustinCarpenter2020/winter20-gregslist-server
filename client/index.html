@@ -1,11 +1,163 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>winter20-gregslist</title>
-  </head>
-  <body>
-    <h1>Hello winter20-gregslist</h1>
-  </body>
+<!DOCTYPE html>
+<html id="top" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/main.css">
+    <title>mvc-gregslist</title>
+</head>
+
+<body class="background">
+    <header>
+        <nav class="navbar navbar-dark bg-dark text-center text-white bar">
+           <h1 class="col-12 title">Welcome To Gregslist</h1>
+          </nav>
+    </header>
+    <main class="container">
+        <div class="row mt-2 text-center justify-content-center">
+            <div class="col text-right">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn listing two" data-toggle="modal"
+                    data-target="#new-car-modal">Car Listing</button>
+                <!-- Modal -->
+                <div class="modal fade" id="new-car-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">NEW CAR FORM</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form onsubmit="app.carsController.createCar()">
+                                    <input type="text" id="make" placeholder="make" required>
+                                    <input type="text" id="model" placeholder="model" required>
+                                    <input type="number" id="year" placeholder="year" required min="1885" value="2020">
+                                    <input type="number" id="price" placeholder="price" required min="1">
+                                    <input type="text" id="description" placeholder="description">
+                                    <input type="text" id="imgUrl" placeholder="Image Url">
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-right">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn listing one" data-toggle="modal"
+                        data-target="#new-house-modal">House Listing</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="new-house-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">NEW HOUSE FORM</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form onsubmit="app.housesController.createHouse()">
+                                        <input type="number" id="bedrooms" placeholder="Bedrooms" required>
+                                        <input type="number" id="levels" placeholder="Levels" required>
+                                        <input type="number" id="bathrooms" placeholder="Bathrooms" required>
+                                        <input type="number" id="hYear" placeholder="Year" required min="1800" value="2020">
+                                        <input type="number" id="hPrice" placeholder="Price" required min="1">
+                                        <input type="text" id="hDescription" placeholder="Description">
+                                        <input type="text" id="hImgUrl" placeholder="Image Url">
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-right">
+                    
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn listing three" data-toggle="modal"
+                            data-target="#new-job-modal">Job Listing</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="new-job-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">NEW JOB FORM</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form onsubmit="app.jobsController.createJob()">
+                                            <input type="text" id="company" placeholder="Company" required>
+                                            <input type="number" id="hours" placeholder="Hours" required>
+                                            <input type="number" id="rate" placeholder="$Hourley-Rate" required min="7">
+                                            <input type="text" id="jDescription" placeholder="Description">
+                                            <input type="text" id="jobTitle" placeholder="Job-Title">
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </div>
+
+
+        <h2 class="title py-4 text-center"><u>CARS</u></h2>
+        <div class="row" id="cars">
+        </div>
+        <h2 class="title py-4 text-center"><u>HOUSES</u></h2>
+        <div class="row" id="houses">
+        </div>
+        <h2 class="title py-4 text-center"><u>JOBS</u></h2>
+        <div class="row" id="jobs"></div>
+<div class="text-center py-3">
+    <a href="#top"><button class="radius">Back To The Top ↑</button></a>
+</div>
+    </main>
+    <footer class="container-fluid bg-dark text-light">
+        <div class="row text-center" onclick="app.carsController.getOne()">
+            <div class="col">
+                <p><small>Made with love by Codeworks</small></p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
+    <script src="app/main.js" type="module"></script>
+</body>
+
 </html>
