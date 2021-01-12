@@ -7,7 +7,7 @@ export class HousesController extends BaseController{
     super('api/houses')
     this.router
       .get("", this.getAll)
-      .get("/:carId", this.getOne)
+      .get("/:id", this.getOne)
       .post("", this.create)
       .put("/:id", this.edit)
       .delete("/:id", this.delete)
@@ -22,7 +22,7 @@ export class HousesController extends BaseController{
   }
   async getOne(req, res, next) {
     try {
-      
+      res.send(await housesService.getOne(req.params.id))
     } catch (error) {
       next(error)
     }
@@ -36,14 +36,14 @@ export class HousesController extends BaseController{
   }
   async edit(req, res, next) {
     try {
-      
+      res.send(await housesService.edit(req.params.id, req.body))
     } catch (error) {
       next(error)
     }
   }
   async delete(req, res, next) {
     try {
-      
+      res.send(await housesService.delete(req.params.id))
     } catch (error) {
       next(error)
     }
