@@ -1,5 +1,5 @@
 // @ts-ignore
 export const api = axios.create({
-  baseURL: 'https://gregslist-server.herokuapp.com/api',
+  baseURL: 'http://localhost:3000/api',
   timeout: 10000
 })
